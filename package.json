@@ -1,0 +1,16 @@
+{
+  "name": "roman-numeral-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculator-spec.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "testdouble": "^1.4.3"
+  },
+  "scripts": {
+    "test": "jasmine-node calculator-spec.js"
+  },
+  "author": "Jason Duffy (@DarthStrom)",
+  "license": "MIT"
+}
