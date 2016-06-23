@@ -35,7 +35,13 @@ describe('converter', function () {
     it('can convert M', function () {
       expect(converter.romanToNumber("M")).toBe(1000);
     });
+
+    it('can convert combined numbers', function () {
+      expect(converter.romanToNumber("XVI")).toBe(16);
+    });
+
+    it('can handle subtractive notation', function () {
+      expect(converter.romanToNumber("IV")).toBe(4);
+    });
   });
 });
-
-// XLCDM

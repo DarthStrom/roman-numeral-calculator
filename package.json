@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "calculator-spec.js",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.13.1"
+  },
   "devDependencies": {
     "jasmine-node": "^1.14.5",
     "testdouble": "^1.4.3"
