@@ -15,17 +15,17 @@ var abbreviations = {
 };
 
 exports.romanToNumber = function (roman) {
-  var result = 0;
-  expandedRoman = expandAbbreviations(roman);
-  for (var i = 0; i < expandedRoman.length; i++) {
-    result += glyphs[expandedRoman[i]];
-  }
-
-  return result;
+  return tally(expandAbbreviations(roman));
 };
 
 function expandAbbreviations(roman) {
   return _.reduce(abbreviations, function(expanded, short, long) {
     return _.replace(expanded, short, long);
   }, roman);
+}
+
+function tally(roman) {
+  return _.reduce(roman, function(soFar, glyph) {
+    return soFar += glyphs[glyph];
+  }, 0);
 }
