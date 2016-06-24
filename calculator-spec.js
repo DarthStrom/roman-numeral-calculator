@@ -20,4 +20,16 @@ describe('calculator', function () {
     expect(calculator.add("II", "II")).toBe("IV");
   });
 
+  it('can add larger numbers by concatenation', function () {
+    expect(calculator.add("XX", "II")).toBe("XXII");
+  });
+
+  it('concatenates in the right order', function () {
+    expect(calculator.add("XIV", "LX")).toBe("LXXIV");
+  })
+
+  it('upgrades the glyph instead of repeating', function () {
+    expect(calculator.add("D", "D")).toBe("M");
+  })
+
 });
