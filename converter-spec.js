@@ -86,5 +86,9 @@ describe('converter', function () {
       expect(converter.numberToRoman(1990)).toBe("MCMXC");
       expect(converter.numberToRoman(2014)).toBe("MMXIV");
     });
+
+    it('can represent negatives', function () {
+      expect(converter.numberToRoman(-13)).toBe("-XIII");
+    });
   });
 });

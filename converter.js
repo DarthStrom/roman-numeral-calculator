@@ -20,12 +20,17 @@ var abbreviations = {
 };
 
 exports.numberToRoman = function (number) {
-  return abbreviate(encode(number));
+  var prefix = getPrefix(number);
+  return prefix + abbreviate(encode(Math.abs(number)));
 }
 
 exports.romanToNumber = function (roman) {
   return tally(expandAbbreviations(roman));
 };
+
+function getPrefix(number) {
+  return number < 0 ? "-" : "";
+}
 
 function abbreviate(expanded) {
   return _.reduce(abbreviations, function (roman, short, long) {

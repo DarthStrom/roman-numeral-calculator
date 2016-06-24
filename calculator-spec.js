@@ -47,7 +47,11 @@ describe('calculator', function () {
       expect(calculator.subtract("XX", "II")).toBe("XVIII");
       expect(calculator.subtract("LX", "XIV")).toBe("XLVI");
       expect(calculator.subtract("M", "D")).toBe("D");
-    })
-  });
+    });
 
+    it('can represent negatives', function () {
+      expect(calculator.subtract("", "I")).toBe("-I");
+      expect(calculator.subtract("II", "XX")).toBe("-XVIII");
+    });
+  });
 });
