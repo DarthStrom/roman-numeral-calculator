@@ -78,5 +78,13 @@ describe('converter', function () {
       expect(converter.numberToRoman(400)).toBe("CD");
       expect(converter.numberToRoman(900)).toBe("CM");
     });
+
+    it('can convert more complex numbers', function () {
+      expect(converter.numberToRoman(14)).toBe("XIV");
+      expect(converter.numberToRoman(74)).toBe("LXXIV");
+      expect(converter.numberToRoman(1954)).toBe("MCMLIV");
+      expect(converter.numberToRoman(1990)).toBe("MCMXC");
+      expect(converter.numberToRoman(2014)).toBe("MMXIV");
+    });
   });
 });
