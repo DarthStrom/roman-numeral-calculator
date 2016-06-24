@@ -45,13 +45,29 @@ describe('converter', function () {
         expect(converter.romanToNumber("IV")).toBe(4);
       });
 
+      it('can handle IX', function () {
+        expect(converter.romanToNumber("IX")).toBe(9);
+      });
+
       it('can handle XL', function () {
         expect(converter.romanToNumber("XL")).toBe(40);
+      });
+
+      it('can handle XC', function () {
+        expect(converter.romanToNumber("XC")).toBe(90);
       });
 
       it('can handle CD', function () {
         expect(converter.romanToNumber("CD")).toBe(400);
       });
+
+      it('can handle CM', function () {
+        expect(converter.romanToNumber("CM")).toBe(900);
+      })
+    });
+
+    it('can convert combined numbers with subtractive notation', function () {
+      expect(converter.romanToNumber("XIV")).toBe(14);
     });
   });
 });

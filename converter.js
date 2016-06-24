@@ -11,9 +11,12 @@ var glyphs = {
 };
 
 var abbreviations = {
-  "IIII": "IV",
-  "XXXX": "XL",
-  "CCCC": "CD"
+  "IIII":  "IV",
+  "VIIII": "IX",
+  "XXXX":  "XL",
+  "LXXXX": "XC",
+  "CCCC":  "CD",
+  "DCCCC": "CM"
 };
 
 exports.romanToNumber = function (roman) {
