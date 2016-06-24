@@ -30,7 +30,7 @@ describe('converter', function () {
       expect("XC".toNumber()).toBe(90);
       expect("CD".toNumber()).toBe(400);
       expect("CM".toNumber()).toBe(900);
-    })
+    });
 
     it('can convert combined numbers with subtractive notation', function () {
       expect("XIV".toNumber()).toBe(14);
@@ -89,7 +89,7 @@ describe('converter', function () {
 
     it('can convert more complex numbers', function () {
       var fourteen = 14, seventyFour = 74, nineteenFiftyFour = 1954,
-        nineteenNinety = 1990, twentyFourteen = 2014
+        nineteenNinety = 1990, twentyFourteen = 2014;
 
       expect(fourteen.toRoman()).toBe("XIV");
       expect(seventyFour.toRoman()).toBe("LXXIV");

@@ -22,7 +22,7 @@ var abbreviations = {
 Number.prototype.toRoman = function () {
   var prefix = getPrefix(this);
   return prefix + abbreviate(encode(Math.abs(this)));
-}
+};
 
 String.prototype.toNumber = function () {
   return tally(expandAbbreviations(this));
@@ -45,7 +45,7 @@ function expandAbbreviations(roman) {
 }
 
 function encode(number) {
-  var result = ""
+  var result = "";
 
   _.each(baseValues, function (baseValue, glyph) {
     while (baseValue <= number) {
@@ -54,7 +54,7 @@ function encode(number) {
     }
   });
 
-  return result
+  return result;
 }
 
 function tally(roman) {

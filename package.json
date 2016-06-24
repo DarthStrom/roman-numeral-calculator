@@ -1,7 +1,8 @@
 {
   "name": "roman-numeral-calculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "roman numeral calculator kata",
+  "repository": "https://github.com/DarthStrom/roman-numeral-calculator.git",
   "main": "calculator-spec.js",
   "dependencies": {
     "lodash": "^4.13.1"

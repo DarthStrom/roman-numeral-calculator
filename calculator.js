@@ -1,4 +1,4 @@
-var converter = require('./converter');
+require('./converter');
 
 exports.add = function(x, y) {
   var sum = x.toNumber() + y.toNumber();
@@ -8,4 +8,4 @@ exports.add = function(x, y) {
 exports.subtract = function(x, y) {
   var difference = x.toNumber() - y.toNumber();
   return difference.toRoman(difference);
-}
+};
