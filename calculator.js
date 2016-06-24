@@ -3,7 +3,7 @@ exports.add = function(x, y) {
   // var yNumber = converter.romanToNumber(y);
   // var sum = xNumber + yNumber;
 
-  // return converter.NumberToRoman(sum);
+  // return converter.numberToRoman(sum);
   return x + y;
 };
 

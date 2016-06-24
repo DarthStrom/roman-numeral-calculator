@@ -4,36 +4,18 @@ describe('converter', function () {
 
   describe('romanToNumber', function () {
 
-    it('can convert I', function () {
+    it('can convert the base glyphs', function () {
       expect(converter.romanToNumber("I")).toBe(1);
+      expect(converter.romanToNumber("V")).toBe(5);
+      expect(converter.romanToNumber("X")).toBe(10);
+      expect(converter.romanToNumber("L")).toBe(50);
+      expect(converter.romanToNumber("C")).toBe(100);
+      expect(converter.romanToNumber("D")).toBe(500);
+      expect(converter.romanToNumber("M")).toBe(1000);
     });
 
     it('can convert II', function () {
       expect(converter.romanToNumber("II")).toBe(2);
-    });
-
-    it('can convert V', function () {
-      expect(converter.romanToNumber("V")).toBe(5);
-    });
-
-    it('can convert X', function () {
-      expect(converter.romanToNumber("X")).toBe(10);
-    });
-
-    it('can convert L', function () {
-      expect(converter.romanToNumber("L")).toBe(50);
-    });
-
-    it('can convert C', function () {
-      expect(converter.romanToNumber("C")).toBe(100);
-    });
-
-    it('can convert D', function () {
-      expect(converter.romanToNumber("D")).toBe(500);
-    });
-
-    it('can convert M', function () {
-      expect(converter.romanToNumber("M")).toBe(1000);
     });
 
     it('can convert combined numbers', function () {
@@ -41,31 +23,14 @@ describe('converter', function () {
       expect(converter.romanToNumber("LX")).toBe(60);
     });
 
-    describe('subtractive notation', function () {
-      it('can handle IV', function () {
-        expect(converter.romanToNumber("IV")).toBe(4);
-      });
-
-      it('can handle IX', function () {
-        expect(converter.romanToNumber("IX")).toBe(9);
-      });
-
-      it('can handle XL', function () {
-        expect(converter.romanToNumber("XL")).toBe(40);
-      });
-
-      it('can handle XC', function () {
-        expect(converter.romanToNumber("XC")).toBe(90);
-      });
-
-      it('can handle CD', function () {
-        expect(converter.romanToNumber("CD")).toBe(400);
-      });
-
-      it('can handle CM', function () {
-        expect(converter.romanToNumber("CM")).toBe(900);
-      })
-    });
+    it('can handle subtractive notation', function () {
+      expect(converter.romanToNumber("IV")).toBe(4);
+      expect(converter.romanToNumber("IX")).toBe(9);
+      expect(converter.romanToNumber("XL")).toBe(40);
+      expect(converter.romanToNumber("XC")).toBe(90);
+      expect(converter.romanToNumber("CD")).toBe(400);
+      expect(converter.romanToNumber("CM")).toBe(900);
+    })
 
     it('can convert combined numbers with subtractive notation', function () {
       expect(converter.romanToNumber("XIV")).toBe(14);
@@ -82,6 +47,19 @@ describe('converter', function () {
       expect(converter.romanToNumber("XXXXXX")).toBe(60);
       expect(converter.romanToNumber("MDCCCCX")).toBe(1910);
       expect(converter.romanToNumber("DD")).toBe(1000);
+    });
+  });
+
+  describe('numberToRoman', function () {
+
+    it('can produce the base glyphs', function () {
+      expect(converter.numberToRoman(1)).toBe("I");
+      expect(converter.numberToRoman(5)).toBe("V");
+      expect(converter.numberToRoman(10)).toBe("X");
+      expect(converter.numberToRoman(50)).toBe("L");
+      expect(converter.numberToRoman(100)).toBe("C");
+      expect(converter.numberToRoman(500)).toBe("D");
+      expect(converter.numberToRoman(1000)).toBe("M");
     });
   });
 });
