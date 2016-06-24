@@ -40,8 +40,18 @@ describe('converter', function () {
       expect(converter.romanToNumber("XVI")).toBe(16);
     });
 
-    it('can handle subtractive notation', function () {
-      expect(converter.romanToNumber("IV")).toBe(4);
+    describe('subtractive notation', function () {
+      it('can handle IV', function () {
+        expect(converter.romanToNumber("IV")).toBe(4);
+      });
+
+      it('can handle XL', function () {
+        expect(converter.romanToNumber("XL")).toBe(40);
+      });
+
+      it('can handle CD', function () {
+        expect(converter.romanToNumber("CD")).toBe(400);
+      });
     });
   });
 });
