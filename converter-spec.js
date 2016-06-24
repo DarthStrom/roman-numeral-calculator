@@ -38,6 +38,7 @@ describe('converter', function () {
 
     it('can convert combined numbers', function () {
       expect(converter.romanToNumber("XVI")).toBe(16);
+      expect(converter.romanToNumber("LX")).toBe(60);
     });
 
     describe('subtractive notation', function () {
@@ -68,6 +69,10 @@ describe('converter', function () {
 
     it('can convert combined numbers with subtractive notation', function () {
       expect(converter.romanToNumber("XIV")).toBe(14);
+      expect(converter.romanToNumber("LXXIV")).toBe(74);
+      expect(converter.romanToNumber("MCMLIV")).toBe(1954);
+      expect(converter.romanToNumber("MCMXC")).toBe(1990);
+      expect(converter.romanToNumber("MMXIV")).toBe(2014);
     });
   });
 });
