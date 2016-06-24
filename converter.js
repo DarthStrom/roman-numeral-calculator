@@ -19,13 +19,13 @@ var abbreviations = {
   "IIII":  "IV"
 };
 
-exports.numberToRoman = function (number) {
-  var prefix = getPrefix(number);
-  return prefix + abbreviate(encode(Math.abs(number)));
+Number.prototype.toRoman = function () {
+  var prefix = getPrefix(this);
+  return prefix + abbreviate(encode(Math.abs(this)));
 }
 
-exports.romanToNumber = function (roman) {
-  return tally(expandAbbreviations(roman));
+String.prototype.toNumber = function () {
+  return tally(expandAbbreviations(this));
 };
 
 function getPrefix(number) {

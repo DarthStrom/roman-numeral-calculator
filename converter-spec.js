@@ -1,94 +1,106 @@
-var converter = require('./converter');
+require('./converter');
 
 describe('converter', function () {
 
-  describe('romanToNumber', function () {
+  describe('toNumber', function () {
 
     it('can convert the base glyphs', function () {
-      expect(converter.romanToNumber("I")).toBe(1);
-      expect(converter.romanToNumber("V")).toBe(5);
-      expect(converter.romanToNumber("X")).toBe(10);
-      expect(converter.romanToNumber("L")).toBe(50);
-      expect(converter.romanToNumber("C")).toBe(100);
-      expect(converter.romanToNumber("D")).toBe(500);
-      expect(converter.romanToNumber("M")).toBe(1000);
+      expect("I".toNumber()).toBe(1);
+      expect("V".toNumber()).toBe(5);
+      expect("X".toNumber()).toBe(10);
+      expect("L".toNumber()).toBe(50);
+      expect("C".toNumber()).toBe(100);
+      expect("D".toNumber()).toBe(500);
+      expect("M".toNumber()).toBe(1000);
     });
 
     it('can convert II', function () {
-      expect(converter.romanToNumber("II")).toBe(2);
+      expect("II".toNumber()).toBe(2);
     });
 
     it('can convert combined numbers', function () {
-      expect(converter.romanToNumber("XVI")).toBe(16);
-      expect(converter.romanToNumber("LX")).toBe(60);
+      expect("XVI".toNumber()).toBe(16);
+      expect("LX".toNumber()).toBe(60);
     });
 
     it('can handle subtractive notation', function () {
-      expect(converter.romanToNumber("IV")).toBe(4);
-      expect(converter.romanToNumber("IX")).toBe(9);
-      expect(converter.romanToNumber("XL")).toBe(40);
-      expect(converter.romanToNumber("XC")).toBe(90);
-      expect(converter.romanToNumber("CD")).toBe(400);
-      expect(converter.romanToNumber("CM")).toBe(900);
+      expect("IV".toNumber()).toBe(4);
+      expect("IX".toNumber()).toBe(9);
+      expect("XL".toNumber()).toBe(40);
+      expect("XC".toNumber()).toBe(90);
+      expect("CD".toNumber()).toBe(400);
+      expect("CM".toNumber()).toBe(900);
     })
 
     it('can convert combined numbers with subtractive notation', function () {
-      expect(converter.romanToNumber("XIV")).toBe(14);
-      expect(converter.romanToNumber("LXXIV")).toBe(74);
-      expect(converter.romanToNumber("MCMLIV")).toBe(1954);
-      expect(converter.romanToNumber("MCMXC")).toBe(1990);
-      expect(converter.romanToNumber("MMXIV")).toBe(2014);
+      expect("XIV".toNumber()).toBe(14);
+      expect("LXXIV".toNumber()).toBe(74);
+      expect("MCMLIV".toNumber()).toBe(1954);
+      expect("MCMXC".toNumber()).toBe(1990);
+      expect("MMXIV".toNumber()).toBe(2014);
     });
 
     it('can handle weird numbers', function () {
-      expect(converter.romanToNumber("IIII")).toBe(4);
-      expect(converter.romanToNumber("CCCCXXXX")).toBe(440);
-      expect(converter.romanToNumber("IIIIII")).toBe(6);
-      expect(converter.romanToNumber("XXXXXX")).toBe(60);
-      expect(converter.romanToNumber("MDCCCCX")).toBe(1910);
-      expect(converter.romanToNumber("DD")).toBe(1000);
+      expect("IIII".toNumber()).toBe(4);
+      expect("CCCCXXXX".toNumber()).toBe(440);
+      expect("IIIIII".toNumber()).toBe(6);
+      expect("XXXXXX".toNumber()).toBe(60);
+      expect("MDCCCCX".toNumber()).toBe(1910);
+      expect("DD".toNumber()).toBe(1000);
     });
   });
 
   describe('numberToRoman', function () {
 
     it('can produce the base glyphs', function () {
-      expect(converter.numberToRoman(1)).toBe("I");
-      expect(converter.numberToRoman(5)).toBe("V");
-      expect(converter.numberToRoman(10)).toBe("X");
-      expect(converter.numberToRoman(50)).toBe("L");
-      expect(converter.numberToRoman(100)).toBe("C");
-      expect(converter.numberToRoman(500)).toBe("D");
-      expect(converter.numberToRoman(1000)).toBe("M");
+      var one = 1, five = 5, ten = 10, fifty = 50, oneHundred = 100,
+        fiveHundred = 500, oneThousand = 1000;
+
+      expect(one.toRoman()).toBe("I");
+      expect(five.toRoman()).toBe("V");
+      expect(ten.toRoman()).toBe("X");
+      expect(fifty.toRoman()).toBe("L");
+      expect(oneHundred.toRoman()).toBe("C");
+      expect(fiveHundred.toRoman()).toBe("D");
+      expect(oneThousand.toRoman()).toBe("M");
     });
 
     it('can convert to multiple glyphs', function () {
-      expect(converter.numberToRoman(2)).toBe("II");
+      var two = 2;
+      expect(two.toRoman()).toBe("II");
     });
 
     it('can convert to mixed glyphs', function () {
-      expect(converter.numberToRoman(16)).toBe("XVI");
+      var sixteen = 16;
+      expect(sixteen.toRoman()).toBe("XVI");
     });
 
     it('can convert to subtractive notation', function () {
-      expect(converter.numberToRoman(4)).toBe("IV");
-      expect(converter.numberToRoman(9)).toBe("IX");
-      expect(converter.numberToRoman(40)).toBe("XL");
-      expect(converter.numberToRoman(90)).toBe("XC");
-      expect(converter.numberToRoman(400)).toBe("CD");
-      expect(converter.numberToRoman(900)).toBe("CM");
+      var four = 4, nine = 9, forty = 40, ninety = 90,
+        fourHundred = 400, nineHundred = 900;
+
+      expect(four.toRoman()).toBe("IV");
+      expect(nine.toRoman()).toBe("IX");
+      expect(forty.toRoman()).toBe("XL");
+      expect(ninety.toRoman()).toBe("XC");
+      expect(fourHundred.toRoman()).toBe("CD");
+      expect(nineHundred.toRoman()).toBe("CM");
     });
 
     it('can convert more complex numbers', function () {
-      expect(converter.numberToRoman(14)).toBe("XIV");
-      expect(converter.numberToRoman(74)).toBe("LXXIV");
-      expect(converter.numberToRoman(1954)).toBe("MCMLIV");
-      expect(converter.numberToRoman(1990)).toBe("MCMXC");
-      expect(converter.numberToRoman(2014)).toBe("MMXIV");
+      var fourteen = 14, seventyFour = 74, nineteenFiftyFour = 1954,
+        nineteenNinety = 1990, twentyFourteen = 2014
+
+      expect(fourteen.toRoman()).toBe("XIV");
+      expect(seventyFour.toRoman()).toBe("LXXIV");
+      expect(nineteenFiftyFour.toRoman()).toBe("MCMLIV");
+      expect(nineteenNinety.toRoman()).toBe("MCMXC");
+      expect(twentyFourteen.toRoman()).toBe("MMXIV");
     });
 
     it('can represent negatives', function () {
-      expect(converter.numberToRoman(-13)).toBe("-XIII");
+      var negativeThirteen = -13;
+      expect(negativeThirteen.toRoman()).toBe("-XIII");
     });
   });
 });

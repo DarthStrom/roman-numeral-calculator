@@ -1,20 +1,11 @@
 var converter = require('./converter');
 
 exports.add = function(x, y) {
-  var xNumber = converter.romanToNumber(x);
-  var yNumber = converter.romanToNumber(y);
-  var sum = xNumber + yNumber;
-
-  return converter.numberToRoman(sum);
+  var sum = x.toNumber() + y.toNumber();
+  return sum.toRoman();
 };
 
 exports.subtract = function(x, y) {
-  var xNumber = converter.romanToNumber(x);
-  var yNumber = converter.romanToNumber(y);
-  var difference = xNumber - yNumber;
-
-  return converter.numberToRoman(difference);
+  var difference = x.toNumber() - y.toNumber();
+  return difference.toRoman(difference);
 }
-
-// note: maybe create arabic and roman numeral classes that can convert
-// themselves instead of having a converter
