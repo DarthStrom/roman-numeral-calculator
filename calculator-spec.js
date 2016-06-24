@@ -16,8 +16,8 @@ describe('calculator', function () {
     expect(calculator.add("I", "II")).toBe("III");
   });
 
-  // it('adds 2 and 2', function () {
-  //   expect(calculator.add("II", "II")).toBe("IV");
-  // });
+  it('adds 2 and 2', function () {
+    expect(calculator.add("II", "II")).toBe("IV");
+  });
 
 });
