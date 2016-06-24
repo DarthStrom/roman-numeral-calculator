@@ -74,5 +74,14 @@ describe('converter', function () {
       expect(converter.romanToNumber("MCMXC")).toBe(1990);
       expect(converter.romanToNumber("MMXIV")).toBe(2014);
     });
+
+    it('can handle weird numbers', function () {
+      expect(converter.romanToNumber("IIII")).toBe(4);
+      expect(converter.romanToNumber("CCCCXXXX")).toBe(440);
+      expect(converter.romanToNumber("IIIIII")).toBe(6);
+      expect(converter.romanToNumber("XXXXXX")).toBe(60);
+      expect(converter.romanToNumber("MDCCCCX")).toBe(1910);
+      expect(converter.romanToNumber("DD")).toBe(1000);
+    });
   });
 });

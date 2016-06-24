@@ -6,3 +6,6 @@ exports.add = function(x, y) {
   // return converter.NumberToRoman(sum);
   return x + y;
 };
+
+// note: maybe create arabic and roman numeral classes that can convert
+// themselves instead of having a converter
