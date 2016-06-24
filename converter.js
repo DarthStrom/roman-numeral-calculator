@@ -11,21 +11,27 @@ var baseValues = {
 };
 
 var abbreviations = {
-  "IIII":  "IV",
-  "VIIII": "IX",
-  "XXXX":  "XL",
-  "LXXXX": "XC",
+  "DCCCC": "CM",
   "CCCC":  "CD",
-  "DCCCC": "CM"
+  "LXXXX": "XC",
+  "XXXX":  "XL",
+  "VIIII": "IX",
+  "IIII":  "IV"
 };
 
 exports.numberToRoman = function (number) {
-  return encode(number);
+  return abbreviate(encode(number));
 }
 
 exports.romanToNumber = function (roman) {
   return tally(expandAbbreviations(roman));
 };
+
+function abbreviate(expanded) {
+  return _.reduce(abbreviations, function (roman, short, long) {
+    return _.replace(roman, long, short);
+  }, expanded);
+}
 
 function expandAbbreviations(roman) {
   return _.reduce(abbreviations, function (expanded, short, long) {

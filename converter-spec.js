@@ -65,5 +65,18 @@ describe('converter', function () {
     it('can convert to multiple glyphs', function () {
       expect(converter.numberToRoman(2)).toBe("II");
     });
+
+    it('can convert to mixed glyphs', function () {
+      expect(converter.numberToRoman(16)).toBe("XVI");
+    });
+
+    it('can convert to subtractive notation', function () {
+      expect(converter.numberToRoman(4)).toBe("IV");
+      expect(converter.numberToRoman(9)).toBe("IX");
+      expect(converter.numberToRoman(40)).toBe("XL");
+      expect(converter.numberToRoman(90)).toBe("XC");
+      expect(converter.numberToRoman(400)).toBe("CD");
+      expect(converter.numberToRoman(900)).toBe("CM");
+    });
   });
 });
