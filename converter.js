@@ -1,24 +1,14 @@
 var _ = require('lodash');
 
 var baseValues = {
-  "I": 1,
-  "V": 5,
-  "X": 10,
-  "L": 50,
-  "C": 100,
+  "M": 1000,
   "D": 500,
-  "M": 1000
+  "C": 100,
+  "L": 50,
+  "X": 10,
+  "V": 5,
+  "I": 1,
 };
-
-var glyphs = {
-  1:    "I",
-  5:    "V",
-  10:   "X",
-  50:   "L",
-  100:  "C",
-  500:  "D",
-  1000: "M"
-}
 
 var abbreviations = {
   "IIII":  "IV",
@@ -30,7 +20,7 @@ var abbreviations = {
 };
 
 exports.numberToRoman = function (number) {
-  return glyphs[number];
+  return encode(number);
 }
 
 exports.romanToNumber = function (roman) {
@@ -38,13 +28,26 @@ exports.romanToNumber = function (roman) {
 };
 
 function expandAbbreviations(roman) {
-  return _.reduce(abbreviations, function(expanded, short, long) {
+  return _.reduce(abbreviations, function (expanded, short, long) {
     return _.replace(expanded, short, long);
   }, roman);
 }
 
+function encode(number) {
+  var result = ""
+
+  _.each(baseValues, function (baseValue, glyph) {
+    while (baseValue <= number) {
+      number -= baseValue;
+      result += glyph;
+    }
+  });
+
+  return result
+}
+
 function tally(roman) {
-  return _.reduce(roman, function(soFar, glyph) {
+  return _.reduce(roman, function (soFar, glyph) {
     return soFar += baseValues[glyph];
   }, 0);
 }

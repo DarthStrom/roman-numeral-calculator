@@ -61,5 +61,9 @@ describe('converter', function () {
       expect(converter.numberToRoman(500)).toBe("D");
       expect(converter.numberToRoman(1000)).toBe("M");
     });
+
+    it('can convert to multiple glyphs', function () {
+      expect(converter.numberToRoman(2)).toBe("II");
+    });
   });
 });
